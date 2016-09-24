@@ -8,25 +8,29 @@ import React, {
 	Component
 } from 'react';
 import {
+	Dimensions,
 	StyleSheet,
 	Text,
-	View
+	View,
+	TouchableHighlight
 } from 'react-native';
 
-
 class Bars extends Component {
+	onPressButton() {
+		
+	}
 	render() {
 		return (
 			<View style = { styles.bars }>
-				<View style = { styles.barBtn1 }>
+				<TouchableHighlight style = { styles.barBtn1 } onPress={this.onPressButton}>
 					<Text style = { styles.txt }> 首页信息 </Text>
-				</View>
-				<View style = {styles.barBtn2}>
+				</TouchableHighlight>
+				<TouchableHighlight style = {styles.barBtn2}>
 					<Text style = { styles.txt }> 购物广场 </Text>
-				</View>
-				<View style = {styles.barBtn3}>
+				</TouchableHighlight>
+				<TouchableHighlight style = {styles.barBtn3}>
 					<Text style = { styles.txt }> 个人中心 </Text>
-				</View>
+				</TouchableHighlight>
 			</View>
 		);
 	}
