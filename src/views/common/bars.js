@@ -23,13 +23,16 @@ class Bars extends Component {
 		return (
 			<View style = { styles.bars }>
 				<TouchableHighlight style = { styles.barBtn1 } onPress={this.onPressButton}>
-					<Text style = { styles.txt }> 首页信息 </Text>
+					<Text style = { styles.txt }> 首页 </Text>
 				</TouchableHighlight>
-				<TouchableHighlight style = {styles.barBtn2}>
-					<Text style = { styles.txt }> 购物广场 </Text>
+				<TouchableHighlight style = {styles.barBtn2} onPress={this.onPressButton}>
+					<Text style = { styles.txt }> 视频 </Text>
 				</TouchableHighlight>
-				<TouchableHighlight style = {styles.barBtn3}>
-					<Text style = { styles.txt }> 个人中心 </Text>
+				<TouchableHighlight style = {styles.barBtn3} onPress={this.onPressButton}>
+					<Text style = { styles.txt }> 游戏 </Text>
+				</TouchableHighlight>
+				<TouchableHighlight style = {styles.barBtn4} onPress={this.onPressButton}>
+					<Text style = { styles.txt }> 我的 </Text>
 				</TouchableHighlight>
 			</View>
 		);
@@ -58,6 +61,12 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#c50000'
+	},
+	barBtn4: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: '#f50000'
 	},
 	txt: {
 		color: '#333333'

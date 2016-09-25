@@ -19,27 +19,53 @@ import {
 import Video from 'react-native-video';
 
 
-const {width, height} = Dimensions.get('window')
+const {width, height} = Dimensions.get('window');
 
 class Bars extends Component {
-	loadStart() {
-		console.log(1);
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			style: {
+				height: 0
+			}
+		};
+		resetVideo = ({height}) => {
+			this.setState({
+				style: {
+					height: height
+				}
+			})
+			// this.state.style.height = height;
+		}
 	}
-	setDuration() {
-		console.log(2)
+	loadStart() {
+	}
+	setDuration(video) {
+		resetVideo({height:video.naturalSize.height * width / video.naturalSize.width});
+		// this.style = {{styles.backgroundVideo}};
+		// 
+	}
+	error(err) {
+		console.log("---------");
+		console.log(err);
 	}
 	render() {
 		return (
-			<ScrollView style = { styles.box}>
+			<ScrollView style = { styles.box }>
 	        	<Video
-					source={{uri:'http://streamtw.vipabc.com/tutormeet/0927ChangYuLee/playlist.m3u8'}} 
-					rate={1.0}                   // 0 is paused, 1 is normal.
-					volume={0.5}                 // 0 is muted, 1 is normal.
-					resizeMode="contain"           // Fill the whole screen at aspect ratio.
+					source={require("./ex.mp4")}
+					// source = {{uri: "http://source.tutorabc.com/video/itutorgroup/ITUTOR_COMPANY_INTRO.mp4"}}
+					rate = {1.0}                   // 0 is paused, 1 is normal.
+					volume = {0.5}                 // 0 is muted, 1 is normal.
+					resizeMode="cover"        // Fill the whole screen at aspect ratio.
 					repeat={true}                // Repeat forever.
-					style={styles.backgroundVideo}
+					playInBackground={false}
+					// style = {{width: width, height: this.state.height, position: 'absolute', left: 0, top: 0}}
+					style = {[styles.backgroundVideo, this.state.style]}
 					onLoadStart={this.loadStart}
-					onLoad={this.setDuration} 
+					onLoad={this.setDuration}
+					onError={this.error}
 				/>
 	      	</ScrollView>
 		);
@@ -53,8 +79,12 @@ const styles = StyleSheet.create({
 	},
 	backgroundVideo: {
 		width: width,
-		height: height,
-		flex: 1
+		height: 0,
+		position: 'absolute',
+	    top: 0,
+	    left: 0,
+	    bottom: 0,
+	    right: 0
   	}
 });
 

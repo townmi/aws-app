@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 import Bars from './views/common/bars.js';
-
+import Head from './views/common/head.js';
 import Home from "./views/home"
 
 class App extends Component {
@@ -24,6 +24,9 @@ class App extends Component {
 	render() {
         return ( 
         	<View style = { styles.wrap }>
+        		<View style = { styles.head }>
+        			<Head/>
+        		</View>
 	            <View style = { styles.container }>
 	                <Home/>
 	            </View>
@@ -38,7 +41,13 @@ class App extends Component {
 
 const styles = StyleSheet.create({
 	wrap: {
-		flex: 1
+		flex: 1,
+		paddingTop: 30
+	},
+	head: {
+		flex: 2,
+    	flexDirection: 'row',
+		backgroundColor: '#FFFFFF',
 	},
 	container: {
 		flex: 30,
@@ -46,20 +55,10 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFFFFF',
 	},
 	barsBox: {
-		flex: 2.5,
+		flex: 3,
 		justifyContent: 'center',
 		backgroundColor: '#eeeeee'
-	},
-	welcome: {
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10,
-	},
-	instructions: {
-		textAlign: 'center',
-		color: '#333333',
-		marginBottom: 5,
-	},
+	}
 });
 
 export default App;
