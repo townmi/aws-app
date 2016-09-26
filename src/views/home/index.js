@@ -27,7 +27,7 @@ class Bars extends Component {
 
 		this.state = {
 			style: {
-				height: 0
+				height: 250
 			}
 		};
 		resetVideo = ({height}) => {
@@ -36,15 +36,15 @@ class Bars extends Component {
 					height: height
 				}
 			})
-			// this.state.style.height = height;
 		}
 	}
 	loadStart() {
 	}
 	setDuration(video) {
-		resetVideo({height:video.naturalSize.height * width / video.naturalSize.width});
-		// this.style = {{styles.backgroundVideo}};
-		// 
+		console.log(video);
+		if(!!video.naturalSize.width) {
+			resetVideo({height:video.naturalSize.height * width / video.naturalSize.width});
+		}
 	}
 	error(err) {
 		console.log("---------");
@@ -54,8 +54,9 @@ class Bars extends Component {
 		return (
 			<ScrollView style = { styles.box }>
 	        	<Video
-					source={require("./ex.mp4")}
-					// source = {{uri: "http://source.tutorabc.com/video/itutorgroup/ITUTOR_COMPANY_INTRO.mp4"}}
+					// source={require("./ex.mp4")}
+					source = {{uri: "http://source.tutorabc.com/video/itutorgroup/ITUTOR_COMPANY_INTRO.mp4"}}
+					// source = {{uri: "http://stream.vipabc.com/tutormeet/0927ChangYuLee/playlist.m3u8"}}
 					rate = {1.0}                   // 0 is paused, 1 is normal.
 					volume = {0.5}                 // 0 is muted, 1 is normal.
 					resizeMode="cover"        // Fill the whole screen at aspect ratio.

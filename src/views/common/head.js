@@ -12,6 +12,7 @@ import {
 	StyleSheet,
 	Text,
 	View,
+	Image,
 	TouchableHighlight
 } from 'react-native';
 
@@ -19,17 +20,20 @@ class Head extends Component {
 	back() {
 		
 	}
+	backPress() {
+
+	}
 	render() {
 		return (
 			<View style = { styles.head }>
-				<TouchableHighlight style = { styles.back } onPress={this.back}>
-					<Text style = { styles.txt }> 1 </Text>
+				<TouchableHighlight style = { styles.back } onPress={this.back} underlayColor = {'#c50000'} onShowUnderlay = {this.backPress}>
+					<Image style={styles.btn} source={{uri: 'http://192.168.111.110/back.png'}}/>
 				</TouchableHighlight>
 				<TouchableHighlight style = {styles.title}>
-					<Text style = { styles.txt }> 购物广场 </Text>
+						<Text style = { styles.txt }> 1 </Text>
 				</TouchableHighlight>
 				<TouchableHighlight style = {styles.right}>
-					<Text style = { styles.txt }> ren </Text>
+					<Image style={styles.btn} source={{uri: 'http://192.168.111.110/back.png'}}/>
 				</TouchableHighlight>
 			</View>
 		);
@@ -40,6 +44,10 @@ const styles = StyleSheet.create({
 	head: {
 		flex: 1,
     	flexDirection: 'row',
+	},
+	btn: {
+		width: 12,
+		height: 12	
 	},
 	back: {
 		flex: 1,

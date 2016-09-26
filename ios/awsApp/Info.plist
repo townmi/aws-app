@@ -39,6 +39,8 @@
 			<string></string>
 			<key>source.vipabc.com</key>
 			<string></string>
+			<key>stream.vipabc.com</key>
+			<string></string>
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
